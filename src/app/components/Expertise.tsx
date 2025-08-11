@@ -13,7 +13,7 @@ import Quickbase from '@/assets/certified/Quickbase.png';
 const Expertise = () => {
     return (
         <>
-            <section className="px-6 md:px-12 py-12 lg:pb-24">
+            <section className="px-6 md:px-12 py-12 lg:pb-24 md:mt-12">
                 <div className="max-w-7xl mx-auto items-center place-items-center">
                     {/* heading */}
                     <div className='text-center mb-24'>
