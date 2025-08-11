@@ -41,7 +41,7 @@ const WhyUs = () => {
 
                 <div className='bg-white border border-[#EDEDED] rounded-2xl px-8 py-7 lg:mt-32 '>
                     <h2 className='text-lg xl:text-3xl 2xl:text-[2.50rem] medium-text tracking-tighter bg-gradient-to-br sm:bg-gradient-to-r from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent '>
-                        How We Deliver Value.
+                        How We Deliver Value!
                     </h2>
                     <div className='lg:mt-10 2xl:mt-12 mb-8'>
                         <div className='pt-3 pb-4 flex flex-row items-center space-x-2 lg:space-x-6 border-b border-b-[#D4D4D4] '>
