@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #4D4D4D;
+  --brandcolor: #5800BD;
+  --buttoncolor: #32006C;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('../fonts/Uncut-Sans-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Uncut Bold';
+  src: url('../fonts/Uncut-Sans-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Uncut Semibold';
+  src: url('../fonts/Uncut-Sans-Semibold.otf') format('opentype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Uncut Medium';
+  src: url('../fonts/Uncut-Sans-Medium.otf') format('opentype');
+  font-style: normal;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-uncut-bold: 'Uncut Bold', sans-serif;
+  --font-uncut-semibold: 'Uncut Semibold', sans-serif;
+  --font-uncut-medium: 'Uncut Medium', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Uncut Sans, sans-serif;
+  /* font-family: var(--font-uncut-sans); */
+}
+
+.bold-heading {
+  font-family: var(--font-uncut-bold);
+}
+
+.semibold-text {
+  font-family: var(--font-uncut-semibold);
+}
+
+.medium-text {
+  font-family: var(--font-uncut-medium);
+}
