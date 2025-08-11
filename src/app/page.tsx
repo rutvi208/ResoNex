@@ -3,6 +3,7 @@ import HeroSection from '@/app/components/HeroSection';
 import Services from '@/app/components/Services';
 import Expertise from '@/app/components/Expertise';
 import WhyUs from '@/app/components/WhyUs';
+import Kpi from '@/app/components/Kpi';
 
 import HeroBg from '@/assets/hero-bg.png';
 import ServicesBg from '@/assets/services-bg.png';
@@ -55,6 +56,9 @@ export default function Home() {
           <WhyUs/>
         </div>
       </div>
+
+      {/* KPI section */}
+      <div><Kpi/></div>
 
       {/* main page ends */}
     </div>
