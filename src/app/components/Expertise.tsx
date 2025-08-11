@@ -91,9 +91,9 @@ const Expertise = () => {
                                 Maximize Reliability with Certified, Industry-Leading Expertise
                             </p>
                             <p className="text-[var(--foreground)] mediun-text text-lg lg:text-xl">
-                                Empower your business with seamless integration and expert support across the world's leading
+                                Empower your business with seamless integration and expert support across the world`s leading
                                 data, analytics, and cloud platforms. Our team boasts top-tier certifications from major
-                                technology partners—ensuring your solutions aren't just compatible, but fully optimized for
+                                technology partners—ensuring your solutions aren`t just compatible, but fully optimized for
                                 speed, security, and scale.
                             </p>
                         </div>

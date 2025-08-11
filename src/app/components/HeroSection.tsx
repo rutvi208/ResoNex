@@ -20,7 +20,7 @@ const HeroSection = () => {
           <p className="mt-6 text-[var(--foreground)] lg:max-w-2xl mx-auto text-lg md:text-xl">
             From actionable analytics to seamless automation, ResoNex delivers the insights and
             tools you need to drive efficiency and stay ahead. Trusted by CIOs, CEOs, CFOs, and
-            CHROs shaping tomorrow's organizations.
+            CHROs shaping tomorrow`s organizations.
           </p>
 
           {/* Buttons */}
