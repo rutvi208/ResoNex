@@ -4,6 +4,11 @@ import Services from '@/app/components/Services';
 import Expertise from '@/app/components/Expertise';
 import WhyUs from '@/app/components/WhyUs';
 import Kpi from '@/app/components/Kpi';
+import Engagement from '@/app/components/Engagement';
+import CtaSection  from '@/app/components/CtaSection';
+import CaseStudies from './components/CaseStudies';
+import Footer from '@/app/components/Footer';
+import ScrollToTop from '@/app/components/ScrollToTop';
 
 import HeroBg from '@/assets/hero-bg.png';
 import ServicesBg from '@/assets/services-bg.png';
@@ -12,9 +17,14 @@ import KpiBg from '@/assets/Kpi-bg.png';
 
 import Image from 'next/image';
 
+
+
 export default function Home() {
   return (
     <div>
+
+      <ScrollToTop />
+      
       {/* Navbar + Hero Section */}
 
       <div className='relative w-full h-[740px] md:h-[640px] lg:h-screen overflow-hidden'>
@@ -29,7 +39,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services */}
+      {/* Services  after:absolute before:bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-[var(--buttoncolor)] */}
 
       <div className='relative w-full'>
           <Image
@@ -59,7 +69,7 @@ export default function Home() {
       </div>
 
       {/* KPI section */}
-      <div className='relative w-full min-h-screen flex items-center justify-center'>
+      <div className='relative w-full h-max flex items-center justify-center'>
           <Image
           src={KpiBg}
           alt="KPI Background"
@@ -71,6 +81,18 @@ export default function Home() {
       </div>
       {/* <div><Kpi/></div> */}
 
+      {/* Engagement */}
+      <div><Engagement/></div>
+
+      {/* CtaSection */}
+      <div><CtaSection/></div>
+
+      {/* Case Studies */}
+      <div><CaseStudies /></div>
+
+      {/* Footer */}
+      <div><Footer/></div>
+        
       {/* main page ends */}
     </div>
   );
