@@ -170,7 +170,7 @@ const Services = () => {
 
                 <div className="space-y-3">
                     {currentService.stats.map((stat: { value: string; label: string }, index: number) => (
-                    <div className="bg-[#F8F8F8] border-[1px] border-[#EDEDED] rounded-lg px-5 py-5 flex items-center gap-4">
+                    <div key={index} className="bg-[#F8F8F8] border-[1px] border-[#EDEDED] rounded-lg px-5 py-5 flex items-center gap-4">
                     <span className="text-[var(--buttoncolor)] semibold-text text-lg lg:text-2xl">{stat.value}</span>
                     <span className="text-[var(--foreground)] text-sm">{stat.label}</span>
                     </div>
