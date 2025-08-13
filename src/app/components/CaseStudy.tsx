@@ -93,7 +93,11 @@ const CaseStudy = () => {
     ];
 
     // Custom Arrows
-    const PrevArrow = ({ onClick}: any) => (
+    interface ArrowProps {
+        onClick?: () => void;
+    }
+
+    const PrevArrow = ({ onClick}: ArrowProps) => (
     <button
         className="hidden sm:flex absolute -left-6 xl:-left-12 2xl:-left-16 top-1/2 -translate-y-1/2 z-10 bg-[#EDEDED] text-[var(--foreground)] p-2 xl:p-3 rounded-full"
         onClick={onClick}
@@ -102,7 +106,7 @@ const CaseStudy = () => {
     </button>
     );
 
-    const NextArrow = ({ onClick }: any) => (
+    const NextArrow = ({ onClick }: ArrowProps) => (
     <button
         className="hidden sm:flex absolute -right-6 xl:-right-12 2xl:-right-16 top-1/2 -translate-y-1/2 z-10 bg-[#EDEDED] text-[var(--foreground)] p-2 xl:p-3 rounded-full"
         onClick={onClick}

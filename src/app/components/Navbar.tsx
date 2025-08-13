@@ -22,7 +22,8 @@ const Navbar = () => {
                     <div className="max-w-7xl w-full py-6">
                         <header className="flex justify-between items-center">
                         <div>
-                            <Link href={"/"}><Image src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
+                            <Link href={"/"}><Image src={Navlogo} alt="ResoNex Logo" className="w-full h-auto"
+                            priority /></Link>
                         </div>
                         <nav className="hidden md:flex gap-8 text-sm text-[var(--foreground)] font-medium">
                             <a href="#services" className="text-base lg:text-xl hover:text-[var(--brandcolor)]">Services</a>
