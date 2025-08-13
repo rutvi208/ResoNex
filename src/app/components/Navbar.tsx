@@ -43,13 +43,13 @@ const Navbar = () => {
                             </div>
 
                             <ul className='h-max w-full text-center py-8'>
-                                <li className='px-4 text-2xl py-4'><Link href="/services">Services</Link></li>
-                                <li className='px-4 text-2xl py-4'><Link href='/why-us'>Why Us</Link></li>
-                                <li className='px-4 text-2xl py-4'><Link href='/kpi-library'>KPI Library</Link></li>
-                                <li className='px-4 text-2xl py-4'><Link href='/case-studies'>Case Studies</Link></li>
-                                <li className='px-4 text-2xl py-4'><Link href="/conatct">Conatct</Link></li>
+                                <li className='px-4 text-2xl py-4'><Link href="#services">Services</Link></li>
+                                <li className='px-4 text-2xl py-4'><Link href='#why-us'>Why Us</Link></li>
+                                <li className='px-4 text-2xl py-4'><Link href='#kpi-library'>KPI Library</Link></li>
+                                <li className='px-4 text-2xl py-4'><Link href='#case-studies'>Case Studies</Link></li>
+                                <li className='px-4 text-2xl py-4'><Link href='#contact'>Contact</Link></li>
                             </ul>
-                            </div>
+                        </div>
                         </header>
                         </div>
                     </section>

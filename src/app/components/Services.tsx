@@ -144,7 +144,7 @@ const Services = () => {
             </div>
 
             {/* Tabs */}
-            <div className="mt-24 mb-16 flex flex-wrap justify-center gap-8 2xl:gap-16 text-[#BBBBBB] font-medium">
+            <div className="mt-24 mb-16 flex flex-row overflow-x-auto whitespace-nowrap scrollbar-hide sm:flex-wrap justify-start sm:justify-center gap-8 2xl:gap-16 text-[#BBBBBB] font-medium">
                 {tabs.map((tab) => (
                         <button
                             key={tab.id}
@@ -157,7 +157,7 @@ const Services = () => {
                             <span className="text-base lg:text-lg">{tab.subname}</span>
                         </button>
                     ))}
-                </div>
+            </div>
 
             {/* Content */}
             <div className="grid md:grid-cols-2 gap-8 xl:gap-14">

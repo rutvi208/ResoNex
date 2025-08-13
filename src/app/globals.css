@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 :root {
   --background: #ffffff;
@@ -55,6 +57,12 @@ body {
   /* font-family: var(--font-uncut-sans); */
 }
 
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 .bold-heading {
   font-family: var(--font-uncut-bold);
 }
@@ -65,4 +73,19 @@ body {
 
 .medium-text {
   font-family: var(--font-uncut-medium);
+}
+
+/* Case Study cards CSS */
+
+.slick-track {
+  display: flex;
+  gap: 12px;
+}
+.slick-slide {
+  height: auto;
+  display: flex;
+}
+.slick-slide > div {
+  height: 100%;
+  display: flex;
 }

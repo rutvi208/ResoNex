@@ -1,11 +1,9 @@
 import Image from "next/image";
 import CtaBg from '@/assets/CTA-bg.png';
-import ScrollButtom from '@/app/components/ScrollButton';
 
 const CtaSection = () => {
     return (
         <div>
-            <ScrollButtom/>
             <section className="max-w-7xl mx-auto px-6 md:px-12 sm:py-8 lg:py-12">
                 <div className='relative w-full'>
                     <Image
