@@ -14,9 +14,9 @@ const Expertise = () => {
     return (
         <>
             <section className="px-6 md:px-12 py-12 lg:pb-24 md:mt-12">
-                <div className="max-w-7xl mx-auto items-center place-items-center">
+                <div className="max-w-7xl mx-auto items-center justify-center place-items-center ">
                     {/* heading */}
-                    <div className='text-center mb-24'>
+                    <div className='text-center mb-24 place-items-center'>
                         <h2 className="w-full lg:w-2xl py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold xl:leading-16 tracking-tight bg-gradient-to-br sm:bg-gradient-to-r from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent">
                             Ready to future-proof your technology ?
                         </h2>

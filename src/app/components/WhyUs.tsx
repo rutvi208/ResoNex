@@ -12,7 +12,7 @@ const WhyUs = () => {
     return (
         <div>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-5 place-content-center max-w-7xl mx-6 sm:mx-10 2xl:mx-auto py-10 md:py-20 xl:py-24'>
-                <div className='bg-white border border-[#EDEDED] rounded-2xl px-8 py-7 max-h-fit '>
+                <div className='bg-white border border-[#EDEDED] rounded-2xl px-8 py-7 max-h-fit ' style={{ maxHeight: "max-content" }}>
                     <h2 className='text-lg xl:text-3xl 2xl:text-[2.50rem] medium-text tracking-tighter bg-gradient-to-br sm:bg-gradient-to-r from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent '>
                         Why Choose ResoNex?
                     </h2>

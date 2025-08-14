@@ -20,7 +20,7 @@ const Footer = () => {
                     {/* Left Content */}
                     <div className="w-full lg:w-1/2 min-w-0">
                     <div className="mb-8">
-                        <Link href={"/"}><Image src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
+                        <Link href={"/"}><Image priority src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
                     </div>
                     <h3 className="text-lg lg:text-xl semibold-text mb-2">
                         Let’s Drive Transformation Together
@@ -80,6 +80,8 @@ const Footer = () => {
                             </h4>
                             <form className="space-y-4">
                                 <input
+                                    id="fullName"
+                                    name="fullName"
                                     required
                                     type="text"
                                     maxLength={100}
@@ -88,7 +90,10 @@ const Footer = () => {
                                 />
                                 <div className="flex gap-2">
                                     <div className="relative">
-                                    <select className="appearance-none border border-[#D4D4D4] bg-[#F8F8F8] rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]">
+                                    <select
+                                    id="countryCode"
+                                    name="countryCode"
+                                    className="appearance-none border border-[#D4D4D4] bg-[#F8F8F8] rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]">
                                     <option>+971</option>
                                     <option>+91</option>
                                     <option>+1</option>
@@ -100,6 +105,8 @@ const Footer = () => {
                                     />
                                     </div>
                                     <input
+                                        id="contactNumber"
+                                        name="contactNumber"
                                         required
                                         type="tel"
                                         placeholder="Contact Number"
@@ -110,6 +117,8 @@ const Footer = () => {
                                     />
                                 </div>
                                 <input
+                                    id="companyName"
+                                    name="companyName"
                                     required
                                     type="text"
                                     maxLength={100}
@@ -117,6 +126,9 @@ const Footer = () => {
                                     className="w-full border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                 />
                                 <input
+                                    id="email"
+                                    name="email"
+                                    autoComplete="email"
                                     required
                                     type="email"
                                     maxLength={100}
@@ -126,6 +138,8 @@ const Footer = () => {
                                     className="w-full border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                 />
                                 <textarea
+                                    id="description"
+                                    name="description"
                                     required
                                     placeholder="Description"
                                     maxLength={500}

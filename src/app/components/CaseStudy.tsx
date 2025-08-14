@@ -141,14 +141,15 @@ const CaseStudy = () => {
         ),
         responsive: [
             {
-            breakpoint: 1139, 
-            settings: { slidesToShow: 2, slidesToScroll: 2 },
+            breakpoint: 1140, // max-width: 1140px
+            settings: { slidesToShow: 2, slidesToScroll: 1 },
             },
             {
-            breakpoint: 639,
+            breakpoint: 640, // max-width: 640px
             settings: { slidesToShow: 1, slidesToScroll: 1 },
             },
         ],
+        respondTo: 'window',
     };
 
     return (

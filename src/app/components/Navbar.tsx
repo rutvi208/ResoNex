@@ -16,13 +16,13 @@ const Navbar = () => {
         // Your existing logic for handling navigation
         }
 
-        useEffect(() => {
-            if (nav) {
-            document.body.style.overflow = "hidden";
-            } else {
-            document.body.style.overflow = "auto";
-            }
-        }, [nav]);
+        // useEffect(() => {
+        //     if (nav) {
+        //     document.body.style.overflow = "hidden";
+        //     } else {
+        //     document.body.style.overflow = "auto";
+        //     }
+        // }, [nav]);
 
     return (
         <div>
@@ -31,7 +31,7 @@ const Navbar = () => {
                     <div className="max-w-7xl w-full py-6">
                         <header className="flex justify-between items-center">
                         <div>
-                            <Link href={"/"}><Image src={Navlogo} alt="ResoNex Logo" width={160} height={40}
+                            <Link href={"/"}><Image fetchPriority='high' src={Navlogo} alt="ResoNex Logo" width={160} height={40}
                             priority /></Link>
                         </div>
                         <nav className="hidden md:flex gap-8 text-sm text-[var(--foreground)] font-medium">
@@ -45,12 +45,12 @@ const Navbar = () => {
                             <TbMenu size={20} color={onTap ? '#4D4D4D' : '#5800BD'} />
                         </div>
                             <div
-                            // onClick={handleNav}
+                                onClick={handleNav}
                                 className={nav ? 'overflow-hidden z-10 lg:hidden ease-in duration-300 fixed text-[var(--foreground)] left-0 top-0 w-full h-screen bg-[#F7F7F7] px-4 py-8 flex flex-col translate-x-0' : 'fixed top-0 h-screen -left-[100%] ease-in duration-500'}
                             >
 
                             <div className='justify-between flex'>
-                                <Link href={"/"}><Image src={Navlogo} alt="ResoNex logo" width={160} height={40} /></Link>
+                                <Link href={"/"}><Image fetchPriority='high' src={Navlogo} alt="ResoNex logo" width={160} height={40} /></Link>
                             </div>
 
                             <ul className='h-max w-full text-center py-8'>
