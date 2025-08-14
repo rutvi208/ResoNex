@@ -17,12 +17,22 @@ import KpiBg from '@/assets/Kpi-bg.png';
 import FooterBg from '@/assets/Footer-bg.png';
 
 import Image from 'next/image';
+// import Meta from '@/app/components/Meta';
 
-
+export const metadata = {
+  title: "ResoNex - Actionable Business Insights",
+  description: "Lead with Data. Accelerate with Automation.",
+  keywords: "ideation, strategy, product, brands, ai, machine learning, data science, cloud, aws, docker, quickbase"
+};
 
 export default function Home() {
   return (
     <div>
+      {/* <Meta
+        title="ResoNex - Actionable Business Insights"
+        description="Lead with Data. Accelerate with Automation."
+        keywords="ideation, strategy, product, brands, ai, machine learning, data science, cloud, aws, docker, quickbase"
+      /> */}
 
       <ScrollToTop />
       
@@ -40,7 +50,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services  after:absolute before:bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-[var(--buttoncolor)] */}
+      {/* Services */}
 
       <div id="services" className='relative w-full'>
           <Image

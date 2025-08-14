@@ -132,7 +132,7 @@ const Services = () => {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <section className="bg-white max-w-6xl w-full rounded-3xl px-6 md:px-14 pt-8 pb-14">
+            <section className="bg-white max-w-6xl w-full rounded-3xl px-6 md:px-14 lg:mt-16 xl:mt-0 pt-8 pb-14">
             {/* Heading  */}
             <div className="text-center">
                 <h1 className="text-sm lg:text-base tracking-widest text-[var(--buttoncolor)] mb-2 lg:mb-5">

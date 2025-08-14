@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import Slider from "react-slick";
+import React, { useState, useEffect } from "react";
+// import Slider from "react-slick";
+import dynamic from "next/dynamic";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from 'next/image';
 import RealEstate from '@/assets/CaseStudy/Real-Estate.svg';
@@ -9,6 +10,8 @@ import Healthcare from '@/assets/CaseStudy/Healthcare.svg';
 import Cloud from '@/assets/CaseStudy/Cloud-data-migration.svg';
 import Retail from '@/assets/CaseStudy/Retail.svg';
 import Hospitality from '@/assets/CaseStudy/Hospitality.svg';
+
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 const CaseStudy = () => {
     const caseStudies = [
@@ -92,6 +95,11 @@ const CaseStudy = () => {
         },
     ];
 
+    const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true); // Render slider only after client mount
+  }, []);
     // Custom Arrows
     interface ArrowProps {
         onClick?: () => void;

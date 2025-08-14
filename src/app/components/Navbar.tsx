@@ -16,14 +16,6 @@ const Navbar = () => {
         // Your existing logic for handling navigation
         }
 
-        // useEffect(() => {
-        //     if (nav) {
-        //     document.body.style.overflow = "hidden";
-        //     } else {
-        //     document.body.style.overflow = "auto";
-        //     }
-        // }, [nav]);
-
     return (
         <div>
             <nav>
@@ -50,7 +42,8 @@ const Navbar = () => {
                             >
 
                             <div className='justify-between flex'>
-                                <Link href={"/"}><Image fetchPriority='high' src={Navlogo} alt="ResoNex logo" width={160} height={40} /></Link>
+                                <Link href={"/"}><Image fetchPriority='high' src={Navlogo} alt="ResoNex logo" width={160} height={40}
+                                priority /></Link>
                             </div>
 
                             <ul className='h-max w-full text-center py-8'>
