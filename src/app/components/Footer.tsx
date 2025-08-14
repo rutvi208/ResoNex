@@ -1,18 +1,24 @@
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+import { HiOutlineEnvelope } from "react-icons/hi2";
+import { PiPhoneCall } from "react-icons/pi";
+import { IoChevronDown } from "react-icons/io5";
 import Image from 'next/image';
 import Link from 'next/link';
 import Navlogo from '@/assets/ResoNex30.png';
-import { IoChevronDown } from "react-icons/io5";
+import Sales from '@/assets/Icons/Sales.svg';
+import Demo from '@/assets/Icons/Demo.svg';
+import Team from '@/assets/Icons/Team.svg';
+import Partner from '@/assets/Icons/Partner.svg';
 import ScrollButtom from '@/app/components/ScrollButton';
 
 const Footer = () => {
     return (
         <div>
             <ScrollButtom/>
-            <section className=" py-12 sm:px-6 lg:px-20">
-                <div className="flex flex-col lg:flex-row gap-10 xl:gap-20 sm:max-w-7xl sm:mx-auto">
+            <section className="container overflow-x-hidden mx-auto px-4 py-12 sm:px-8 ">
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-10 xl:gap-20 w-full sm:max-w-7xl sm:mx-auto">
                     {/* Left Content */}
-                    <div className="lg:w-1/2">
+                    <div className="w-full lg:w-1/2 min-w-0">
                     <div className="mb-8">
                         <Link href={"/"}><Image src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
                     </div>
@@ -27,38 +33,38 @@ const Footer = () => {
                     </p>
 
                     {/* Buttons */}
-                    <div className="grid grid-cols-2 gap-3 my-8 lg:my-10">
-                        <button className="flex items-center justify-center gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                            Talk to Sales
+                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3 my-8 lg:my-10 w-full">
+                        <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                            <span className="px-1"><Image src={Sales} alt="Talk to Sales" /></span>Talk to Sales
                         </button>
-                        <button className="flex items-center justify-center gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                            Request Demo
+                        <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                            <span className="px-1"><Image src={Demo} alt="Request Demo" /></span>Request Demo
                         </button>
-                        <button className="flex items-center justify-center gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                            Join Our Team
+                        <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                            <span className="px-1"><Image src={Team} alt="Join Our Team" /></span>Join Our Team
                         </button>
-                        <button className="flex items-center justify-center gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                            Partner with Us
+                        <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                            <span className="px-1"><Image src={Partner} alt="Partner with Us" /></span>Partner with Us
                         </button>
                     </div>
 
                     {/* Contact Info */}
-                    <h4 className="medium-text text-base lg:text-lg mb-4 xl:mb-5 ">
+                    <h4 className="medium-text text-base lg:text-lg mb-4 xl:mb-5">
                         Contact Us
                     </h4>
-                    <div className="flex flex-row gap-4 mb-2 xl:mb-3">
+                    <div className="flex flex-col sm:flex-row gap-4 xl:gap-6 mb-2 xl:mb-3">
                         <div className="flex items-center gap-3">
-                            <FaEnvelope className="text-[var(--foreground)]" />
-                            <span>business@resonextech.com</span>
+                            <HiOutlineEnvelope className="text-[var(--foreground)] w-5 h-5 sm:w-6 sm:h-6" />
+                            <a href="mailto:business@resonextech.com">business@resonextech.com</a>
                         </div>
                         <div className="flex items-center gap-3">
-                            <FaPhoneAlt className="text-[var(--foreground)]" />
-                            <span>+971502149342</span>
+                            <PiPhoneCall className="text-[var(--foreground)] w-5 h-5 sm:w-6 sm:h-6" />
+                            <a href="tel:+971502149342">+971502149342</a>
                         </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                        <FaMapMarkerAlt className="text-[var(--foreground)] w-8 h-8 sm:w-auto sm:h-auto mt-1" />
+                        <HiOutlineLocationMarker className="text-[var(--foreground)] w-12 h-12 sm:w-6 sm:h-6 sm:mt-1" />
                         <span className="xl:w-8/12">
                         ResoNex Technologies L.L.C-FZ, Meydan Grandstand, 6th floor,
                         Meydan Road, Nad Al Sheba, Dubai, U.A.E.
@@ -67,8 +73,8 @@ const Footer = () => {
                     </div>
 
                     {/* Right Form */}
-                    <div className="lg:w-1/2">
-                        <div className="border border-[#EDEDED] max-w-4xl bg-white rounded-2xl p-6 shadow-sm">
+                    <div className="w-full lg:w-1/2">
+                        <div className="border border-[#EDEDED] sm:max-w-4xl bg-white rounded-2xl p-6 shadow-sm">
                             <h4 className="mb-4 xl:mb-6 semibold-text text-base lg:text-xl w-fit tracking-tight bg-gradient-to-br from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent">
                             Feel free to get in touch
                             </h4>

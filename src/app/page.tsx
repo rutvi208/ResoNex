@@ -48,7 +48,7 @@ export default function Home() {
           alt="Services Background"
           className='absolute inset-0 w-full h-full top-60'
           priority />
-        <div className='relative z-10'>
+        <div className='relative sm:z-10'>
           <Services/>
         </div>
       </div>

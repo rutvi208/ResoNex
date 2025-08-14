@@ -190,7 +190,7 @@ const Services = () => {
                 <ul className="grid grid-cols-1 gap-y-4 gap-x-2 text-[var(--foreground)] text-sm lg:text-base list-disc list-inside">
                     {currentService.capabilities.map((capability: string, index: number) => (
                         <li key={index} className="flex items-start gap-3">
-                            <span className="text-purple-600 font-bold text-lg">•</span>
+                            <span className="font-bold text-lg">•</span>
                             <span>{capability}</span>
                         </li>
                     ))}
