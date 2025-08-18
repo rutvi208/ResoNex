@@ -150,11 +150,11 @@ const CaseStudy = () => {
         responsive: [
             {
             breakpoint: 1140, // max-width: 1140px
-            settings: { slidesToShow: 2, slidesToScroll: 1 },
+            settings: { slidesToShow: 2 },
             },
             {
             breakpoint: 640, // max-width: 640px
-            settings: { slidesToShow: 1, slidesToScroll: 1 },
+            settings: { slidesToShow: 1 },
             },
         ],
         respondTo: 'window',

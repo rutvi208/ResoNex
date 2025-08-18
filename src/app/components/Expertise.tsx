@@ -13,11 +13,11 @@ import Quickbase from '@/assets/certified/Quickbase.png';
 const Expertise = () => {
     return (
         <>
-            <section className="px-6 md:px-12 py-12 lg:pb-24 md:mt-12">
+            <section className="px-6 lg:px-12 py-12 lg:pb-24 md:mt-12 xl:my-20">
                 <div className="max-w-7xl mx-auto items-center justify-center place-items-center ">
                     {/* heading */}
                     <div className='text-center mb-24 place-items-center'>
-                        <h2 className="w-full lg:w-2xl py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold xl:leading-16 tracking-tight bg-gradient-to-br sm:bg-gradient-to-r from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent">
+                        <h2 className="py-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold xl:leading-16 tracking-tight bg-gradient-to-br sm:bg-gradient-to-r from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent">
                             Ready to future-proof your technology ?
                         </h2>
                         <p className="mt-4 text-[var(--foreground)] medium-text mx-auto text-lg md:text-xl">
@@ -26,11 +26,11 @@ const Expertise = () => {
                     </div>
 
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 2xl:gap-10">
                         {/* <!-- Logos Grid --> */}
                         <div>
                             {/* <!-- Row 1 --> */}
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="grid grid-cols-3 gap-2 mx-4 lg:mx-10 2xl:mx-12">
                                 <div className="bg-white border-[#EDEDED] border rounded-xl flex flex-col items-center justify-center p-4">
                                 <Image src={Tableau} alt="Tableau" className="mb-3" />
                                 <p className="text-base text-[var(--foreground)]">Tableau</p>
@@ -66,7 +66,7 @@ const Expertise = () => {
                             </div>
 
                             {/* <!-- Row 3 --> */}
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="grid grid-cols-3 gap-2 mx-4 lg:mx-10 2xl:mx-12">
                                 <div className="bg-white border-[#EDEDED] border rounded-xl flex flex-col items-center justify-center p-4">
                                 <Image src={Quickbase} alt="Quickbase" className="mb-3" />
                                 <p className="text-xs text-gray-600">Quickbase</p>
