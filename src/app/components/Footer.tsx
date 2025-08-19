@@ -89,7 +89,7 @@ const Footer = () => {
                 src={FooterBg}
                 alt="KPI Background"
                 className='absolute inset-0 w-full h-full object-fill'
-                priority />
+                loading="lazy" />
                 <div className='relative z-10'>
                     {/* <Footer/> */}
                     <ScrollButtom/>
@@ -98,7 +98,7 @@ const Footer = () => {
                             {/* Left Content */}
                             <div className="w-full lg:w-1/2 min-w-0">
                                 <div className="mb-8">
-                                    <Link href={"/"}><Image priority src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
+                                    <Link href={"/"}><Image loading="lazy" src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
                                 </div>
                                 <h3 className="text-lg lg:text-xl semibold-text mb-2">
                                     Let’s Drive Transformation Together

@@ -17,7 +17,7 @@ const WhyUs = () => {
                 src={WhyUsBg}
                 alt="Why Us Background"
                 className='absolute inset-0 w-full h-full object-fill'
-                priority />
+                loading="lazy" />
                 <div className='relative z-10'>
                     {/* <WhyUs/> */}
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-5 place-content-center max-w-7xl mx-6 sm:mx-10 2xl:mx-auto py-10 md:py-20 xl:py-24'>

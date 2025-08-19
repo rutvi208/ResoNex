@@ -24,7 +24,7 @@ const Navbar = () => {
                         <header className="flex justify-between items-center">
                         <div>
                             <Link href={"/"}><Image fetchPriority='high' src={Navlogo} alt="ResoNex Logo" width={160} height={40}
-                            priority /></Link>
+                            loading="lazy" /></Link>
                         </div>
                         <nav className="hidden md:flex gap-8 text-sm text-[var(--foreground)] font-medium">
                             <a href="#services" className="text-base lg:text-xl hover:text-[var(--brandcolor)]">Services</a>
@@ -43,7 +43,7 @@ const Navbar = () => {
 
                             <div className='justify-between flex'>
                                 <Link href={"/"}><Image fetchPriority='high' src={Navlogo} alt="ResoNex logo" width={160} height={40}
-                                priority /></Link>
+                                loading="lazy" /></Link>
                             </div>
 
                             <ul className='h-max w-full text-center py-8'>

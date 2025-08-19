@@ -10,7 +10,7 @@ const HeroSection = () => {
           src={HeroBg}
           alt="Hero Background"
           fill
-          priority
+          loading="lazy"
           className='absolute inset-0 object-cover'
            />
         <div className='absolute inset-0 z-10'>

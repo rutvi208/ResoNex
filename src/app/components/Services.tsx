@@ -138,7 +138,7 @@ const Services = () => {
           src={ServicesBg}
           alt="Services Background"
           className='absolute inset-0 w-full h-full top-60'
-          priority />
+          loading="lazy" />
             <div className='relative sm:z-10'>
             {/* <Services/> */}
                 <div className="flex flex-col items-center justify-center">

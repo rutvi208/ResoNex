@@ -9,7 +9,7 @@ const Kpi = () => {
                 src={KpiBg}
                 alt="KPI Background"
                 className='absolute inset-0 w-full h-full object-fill'
-                priority />
+                loading="lazy" />
                 <div className='relative z-10'>
                     {/* <Kpi/> */}
                     <section className=" text-white py-8 sm:py-12 lg:py-20 px-6">
