@@ -1,3 +1,5 @@
+"use client";
+
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { PiPhoneCall } from "react-icons/pi";
@@ -11,11 +13,77 @@ import Team from '@/assets/Icons/Team.svg';
 import Partner from '@/assets/Icons/Partner.svg';
 import ScrollButtom from '@/app/components/ScrollButton';
 import FooterBg from '@/assets/Footer-bg.png';
+import {useState } from 'react';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../services/Firebase';
+import { serverTimestamp } from "firebase/firestore";
 
 const Footer = () => {
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    
+      const [formData, setFormData] = useState({
+          fullName: "",
+          email: "",
+          countryCode: "+971", // default
+          contactNumber: "",
+          companyName: "",
+          description: "",
+          createdAt: serverTimestamp()
+        });
+    
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+          const { name, value } = e.target;
+          setFormData({ ...formData, [name]: value });
+        };
+    
+        const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          setIsSubmitting(true); // Disable the button
+          console.log("Submitting formData:"); // Debug
+
+          try {
+            // Save form data to Firestore
+
+            const { countryCode, contactNumber } = formData;
+            // Final clean data
+            const finalData = {
+                ...formData,
+                phone: `${countryCode} ${contactNumber}`, // merged phone
+                createdAt: serverTimestamp(), 
+            };
+
+            // Fire and forget (don’t block UI reset)
+            addDoc(collection(db, "contactform"), finalData)
+            .then((docRef) => console.log("Doc written:", docRef.id))
+            .catch((err) => console.error("Firestore error:", err));
+
+            // await addDoc(collection(db, "contactform"), formData);
+            // const docRef = await addDoc(collection(db, "contactform"), finalData);
+
+            alert("Message submitted successfully!");
+            setFormData({
+            fullName: "",
+            email: "",
+            countryCode: "+971 ", // default
+            contactNumber: "",
+            companyName: "",
+            description: "",
+            createdAt: serverTimestamp()
+            });
+    
+          } catch {
+            //setIsSubmitting(false); // Disable the button
+            alert("Failed to submit!");
+          } finally {
+                // ✅ Always re-enable button
+                setIsSubmitting(false);
+            }
+        };
+    
     return (
         <div>
-            <ScrollButtom/>
+            
             <div id="contact" className='relative w-full h-max flex items-center justify-center'>
                 <Image
                 src={FooterBg}
@@ -24,61 +92,62 @@ const Footer = () => {
                 priority />
                 <div className='relative z-10'>
                     {/* <Footer/> */}
+                    <ScrollButtom/>
                     <section className="container overflow-x-hidden mx-auto px-4 py-12 sm:px-8 ">
                         <div className="flex flex-col lg:flex-row gap-6 sm:gap-10 xl:gap-20 w-full sm:max-w-7xl sm:mx-auto">
                             {/* Left Content */}
                             <div className="w-full lg:w-1/2 min-w-0">
-                            <div className="mb-8">
-                                <Link href={"/"}><Image priority src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
-                            </div>
-                            <h3 className="text-lg lg:text-xl semibold-text mb-2">
-                                Let’s Drive Transformation Together
-                            </h3>
-                            <p className="text-base mb-6">
-                                Ready to unlock powerful business insights or explore how advanced
-                                automation, cloud, or data solutions can accelerate your growth?
-                                Our team is here to provide answers, expert guidance, and the next
-                                steps to future-proof your enterprise.
-                            </p>
-
-                            {/* Buttons */}
-                            <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3 my-8 lg:my-10 w-full">
-                                <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                                    <span className="px-1"><Image src={Sales} alt="Talk to Sales" /></span>Talk to Sales
-                                </button>
-                                <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                                    <span className="px-1"><Image src={Demo} alt="Request Demo" /></span>Request Demo
-                                </button>
-                                <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                                    <span className="px-1"><Image src={Team} alt="Join Our Team" /></span>Join Our Team
-                                </button>
-                                <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
-                                    <span className="px-1"><Image src={Partner} alt="Partner with Us" /></span>Partner with Us
-                                </button>
-                            </div>
-
-                            {/* Contact Info */}
-                            <h4 className="medium-text text-base lg:text-lg mb-4 xl:mb-5">
-                                Contact Us
-                            </h4>
-                            <div className="flex flex-col sm:flex-row gap-4 xl:gap-6 mb-2 xl:mb-3">
-                                <div className="flex items-center gap-3">
-                                    <HiOutlineEnvelope className="text-[var(--foreground)] w-5 h-5 sm:w-6 sm:h-6" />
-                                    <a href="mailto:business@resonextech.com">business@resonextech.com</a>
+                                <div className="mb-8">
+                                    <Link href={"/"}><Image priority src={Navlogo} alt="ResoNex Logo" width={160} height={40} /></Link>
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <PiPhoneCall className="text-[var(--foreground)] w-5 h-5 sm:w-6 sm:h-6" />
-                                    <a href="tel:+971502149342">+971502149342</a>
+                                <h3 className="text-lg lg:text-xl semibold-text mb-2">
+                                    Let’s Drive Transformation Together
+                                </h3>
+                                <p className="text-base mb-6">
+                                    Ready to unlock powerful business insights or explore how advanced
+                                    automation, cloud, or data solutions can accelerate your growth?
+                                    Our team is here to provide answers, expert guidance, and the next
+                                    steps to future-proof your enterprise.
+                                </p>
+
+                                {/* Buttons */}
+                                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3 my-8 lg:my-10 w-full">
+                                    <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                                        <span className="px-1"><Image src={Sales} alt="Talk to Sales" /></span>Talk to Sales
+                                    </button>
+                                    <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                                        <span className="px-1"><Image src={Demo} alt="Request Demo" /></span>Request Demo
+                                    </button>
+                                    <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                                        <span className="px-1"><Image src={Team} alt="Join Our Team" /></span>Join Our Team
+                                    </button>
+                                    <button className="flex items-center justify-center gap-1 sm:gap-2 border border-[#D4D4D4] rounded-lg lg:rounded-xl px-0 sm:px-5 py-1.5 text-sm medium-text hover:bg-gray-100">
+                                        <span className="px-1"><Image src={Partner} alt="Partner with Us" /></span>Partner with Us
+                                    </button>
                                 </div>
-                            </div>
-                            
-                            <div className="flex items-start gap-3">
-                                <HiOutlineLocationMarker className="text-[var(--foreground)] w-12 h-12 sm:w-6 sm:h-6 sm:mt-1" />
-                                <span className="xl:w-8/12">
-                                ResoNex Technologies L.L.C-FZ, Meydan Grandstand, 6th floor,
-                                Meydan Road, Nad Al Sheba, Dubai, U.A.E.
-                                </span>
-                            </div>
+
+                                {/* Contact Info */}
+                                <h4 className="medium-text text-base lg:text-lg mb-4 xl:mb-5">
+                                    Contact Us
+                                </h4>
+                                <div className="flex flex-col sm:flex-row gap-4 xl:gap-6 mb-2 xl:mb-3">
+                                    <div className="flex items-center gap-3">
+                                        <HiOutlineEnvelope className="text-[var(--foreground)] w-5 h-5 sm:w-6 sm:h-6" />
+                                        <a href="mailto:business@resonextech.com">business@resonextech.com</a>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <PiPhoneCall className="text-[var(--foreground)] w-5 h-5 sm:w-6 sm:h-6" />
+                                        <a href="tel:+971502149342">+971502149342</a>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                    <HiOutlineLocationMarker className="text-[var(--foreground)] w-12 h-12 sm:w-6 sm:h-6 sm:mt-1" />
+                                    <span className="xl:w-8/12">
+                                    ResoNex Technologies L.L.C-FZ, Meydan Grandstand, 6th floor,
+                                    Meydan Road, Nad Al Sheba, Dubai, U.A.E.
+                                    </span>
+                                </div>
                             </div>
 
                             {/* Right Form */}
@@ -87,7 +156,7 @@ const Footer = () => {
                                     <h4 className="mb-4 xl:mb-6 semibold-text text-base lg:text-xl w-fit tracking-tight bg-gradient-to-br from-[#303030] via-[#32006C] via-[50%] to-[#4D4D4D] bg-clip-text text-transparent">
                                     Feel free to get in touch
                                     </h4>
-                                    <form className="space-y-4">
+                                    <form className="space-y-4"  onSubmit={handleSubmit}>
                                         <input
                                             id="fullName"
                                             name="fullName"
@@ -95,6 +164,8 @@ const Footer = () => {
                                             type="text"
                                             maxLength={100}
                                             placeholder="Full Name"
+                                            value={formData.fullName}
+                                            onChange={handleChange}
                                             className="w-full  border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                         />
                                         <div className="flex gap-2">
@@ -102,6 +173,8 @@ const Footer = () => {
                                             <select
                                             id="countryCode"
                                             name="countryCode"
+                                            value={formData.countryCode}
+                                            onChange={handleChange}
                                             className="appearance-none border border-[#D4D4D4] bg-[#F8F8F8] rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]">
                                             <option>+971</option>
                                             <option>+91</option>
@@ -119,9 +192,10 @@ const Footer = () => {
                                                 required
                                                 type="tel"
                                                 placeholder="Contact Number"
-                                                pattern="[0-9]{10,15}"
                                                 maxLength={10}
                                                 title="Please enter a valid phone number (10 digits)"
+                                                value={formData.contactNumber}
+                                                onChange={handleChange}
                                                 className="flex-1 border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                             />
                                         </div>
@@ -132,6 +206,8 @@ const Footer = () => {
                                             type="text"
                                             maxLength={100}
                                             placeholder="Company Name"
+                                            value={formData.companyName}
+                                            onChange={handleChange}
                                             className="w-full border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                         />
                                         <input
@@ -141,9 +217,11 @@ const Footer = () => {
                                             required
                                             type="email"
                                             maxLength={100}
-                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                            // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                             title="Please enter a valid email address (e.g., name@example.com)"
                                             placeholder="E-mail ID"
+                                            value={formData.email}
+                                            onChange={handleChange}
                                             className="w-full border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                         />
                                         <textarea
@@ -152,13 +230,19 @@ const Footer = () => {
                                             required
                                             placeholder="Description"
                                             maxLength={500}
+                                            value={formData.description}
+                                            onChange={handleChange}
                                             // rows="3"
                                             className="w-full border border-[#D4D4D4] bg-[#F8F8F8] text-[var(--foreground)] placeholder-[#A2A2A2] rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--buttoncolor)]"
                                         ></textarea>
                                         <div className="mt-4 lg:mt-6 flex items-center justify-center">
-                                            <a href="#">
-                                                <button type="submit" className="bg-[var(--buttoncolor)] semibold-text text-base text-white rounded-lg md:rounded-xl py-2.5 px-8 ">Submit</button>
-                                            </a>
+                                            <button disabled={isSubmitting} type="submit" 
+                                                className="bg-[var(--buttoncolor)] semibold-text text-base text-white rounded-lg md:rounded-xl py-2.5 px-8 ">
+                                                {/* Submit */}
+                                                <span className="relative px-8 py-2.5 btn-span-theme">
+                                                {isSubmitting ? "Submitting..." : "Submit"}
+                                                </span>
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

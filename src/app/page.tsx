@@ -9,9 +9,6 @@ import CaseStudy from './components/CaseStudy';
 import Footer from '@/app/components/Footer';
 import ScrollToTop from '@/app/components/ScrollToTop';
 
-import FooterBg from '@/assets/Footer-bg.png';
-
-import Image from 'next/image';
 // import Meta from '@/app/components/Meta';
 
 export const metadata = {

@@ -77,9 +77,20 @@ html {
 
 /* Case Study cards CSS */
 
-.slick-track {
+/* .slick-track {
   display: flex;
   gap: 12px;
+} */
+.slick-track {
+  display: block !important;
+}
+
+/* Apply flex + gap only on bigger screens */
+@media (min-width: 640px) {
+  .slick-track {
+    display: flex !important;
+    gap: 12px;
+  }
 }
 .slick-slide {
   height: auto;
