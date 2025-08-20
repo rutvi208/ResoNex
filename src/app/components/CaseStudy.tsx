@@ -107,7 +107,7 @@ const CaseStudy = () => {
 
     const PrevArrow = ({ onClick}: ArrowProps) => (
     <button
-        className="hidden sm:flex absolute -left-6 xl:-left-12 2xl:-left-16 top-1/2 -translate-y-1/2 z-10 bg-[#EDEDED] text-[var(--foreground)] p-2 xl:p-3 rounded-full"
+        className="hidden sm:flex absolute sm:-left-6 xl:-left-12 2xl:-left-16 top-1/2 -translate-y-1/2 z-10 bg-[#EDEDED] text-[var(--foreground)] p-2 xl:p-3 rounded-full"
         onClick={onClick}
     >
         <FaChevronLeft />
@@ -116,7 +116,7 @@ const CaseStudy = () => {
 
     const NextArrow = ({ onClick }: ArrowProps) => (
     <button
-        className="hidden sm:flex absolute -right-6 xl:-right-12 2xl:-right-16 top-1/2 -translate-y-1/2 z-10 bg-[#EDEDED] text-[var(--foreground)] p-2 xl:p-3 rounded-full"
+        className="hidden sm:flex absolute sm:-right-6 xl:-right-12 2xl:-right-16 top-1/2 -translate-y-1/2 z-10 bg-[#EDEDED] text-[var(--foreground)] p-2 xl:p-3 rounded-full"
         onClick={onClick}
     >
         <FaChevronRight />
@@ -132,6 +132,18 @@ const CaseStudy = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         swipeToSlide: true,
+        responsive: [
+        { breakpoint: 1140, 
+            settings: { slidesToShow: 2,
+            centerMode: false,
+            centerPadding: "0px", } 
+        }, // tablet
+        { breakpoint: 640, 
+            settings: { slidesToShow: 1,
+            centerMode: false,          // Enable only for mobile
+            centerPadding: "0px",  } 
+        },  // mobile
+        ],
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         beforeChange: (_: number, newIndex: number) => setCurrentSlide(newIndex),
@@ -147,17 +159,6 @@ const CaseStudy = () => {
             <ul>{dots}</ul>
         </div>
         ),
-        responsive: [
-            {
-            breakpoint: 1140, // max-width: 1140px
-            settings: { slidesToShow: 2, slidesToScroll: 1 },
-            },
-            {
-            breakpoint: 640, // max-width: 640px
-            settings: { slidesToShow: 1, slidesToScroll: 1 },
-            },
-        ],
-        // respondTo: 'window',
     };
 
     return (

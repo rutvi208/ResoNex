@@ -77,20 +77,11 @@ html {
 
 /* Case Study cards CSS */
 
-/* .slick-track {
+.slick-track {
   display: flex;
   gap: 12px;
-} */
-.slick-track {
-  display: block !important;
 }
 
-@media (min-width: 640px) {
-  .slick-track {
-    display: flex !important;
-    gap: 12px;
-  }
-}
 .slick-slide {
   height: auto;
   /* display: flex; */
